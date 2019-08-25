@@ -22,6 +22,7 @@ public class ChatClient {
 
 	public ChatClient() {
 		this.channels = new ChannelList();
+		this.authed = new ChannelList();
 	}
 
 	public void addChannels(Channel... channels) {
