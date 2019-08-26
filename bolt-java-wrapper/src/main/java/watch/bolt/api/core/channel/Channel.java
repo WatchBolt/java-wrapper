@@ -5,12 +5,13 @@ import watch.bolt.api.core.game.Game;
 
 public class Channel implements BoltObject {
 
-	protected int id, userId, followers;
+	protected long id, userId;
+	protected int followers;
 	protected String username, streamName;
 	protected Game game;
 	protected boolean verified, partnered;
 
-	public int getID() {
+	public long getID() {
 		return id;
 	}
 
@@ -18,7 +19,7 @@ public class Channel implements BoltObject {
 		return game;
 	}
 
-	public int getUserID() {
+	public long getUserID() {
 		return userId;
 	}
 

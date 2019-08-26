@@ -4,7 +4,7 @@ import watch.bolt.api.core.BoltObject;
 
 public class Game implements BoltObject {
 
-	protected int id;
+	protected long id;
 	protected String name;
 
 	public Game(int id, String name) {
@@ -12,7 +12,7 @@ public class Game implements BoltObject {
 		this.name = name;
 	}
 
-	public int getID() {
+	public long getID() {
 		return id;
 	}
 

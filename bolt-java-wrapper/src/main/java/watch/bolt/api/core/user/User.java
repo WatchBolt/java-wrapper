@@ -4,13 +4,13 @@ import watch.bolt.api.core.BoltObject;
 
 public class User implements BoltObject {
 
-	protected int id, channelId, socialId;
+	protected long id, channelId, socialId;
 	protected String username, displayName;
 
 	protected User() {
 	}
 
-	public int getChannelID() {
+	public long getChannelID() {
 		return channelId;
 	}
 
@@ -22,11 +22,11 @@ public class User implements BoltObject {
 		return username;
 	}
 
-	public int getID() {
+	public long getID() {
 		return id;
 	}
 
-	public int getSocialID() {
+	public long getSocialID() {
 		return socialId;
 	}
 

@@ -8,6 +8,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import watch.bolt.api.BoltAPI;
 import watch.bolt.api.core.BoltCallback;
 import watch.bolt.api.core.BoltEndpoint;
 import watch.bolt.api.core.channel.Channel;
@@ -15,6 +16,10 @@ import watch.bolt.api.core.game.Game;
 import watch.bolt.api.core.user.User;
 
 public class StreamsEndpoint extends BoltEndpoint {
+
+	public StreamsEndpoint(BoltAPI api) {
+		super(api);
+	}
 
 	public boolean getStream(Channel channel, BoltCallback<Stream> out) {
 		return getStream(channel.getID(), out);
@@ -24,7 +29,7 @@ public class StreamsEndpoint extends BoltEndpoint {
 		return getStream(user.getChannelID(), out);
 	}
 
-	public boolean getStream(int id, BoltCallback<Stream> out) {
+	public boolean getStream(long id, BoltCallback<Stream> out) {
 		if (out == null)
 			return false;
 		HttpGet get = new HttpGet(getPath() + "/stream/" + id);
@@ -81,8 +86,8 @@ public class StreamsEndpoint extends BoltEndpoint {
 
 	private Stream parse(JSONObject o) {
 		Stream s = new Stream();
-		s.id = (int) o.get("id");
-		s.userId = (int) o.get("userId");
+		s.id = (long) o.get("id");
+		s.userId = (long) o.get("userId");
 		s.viewers = (int) o.get("viewers");
 		s.username = String.valueOf(o.get("username"));
 		s.streamName = String.valueOf(o.get("streamName"));

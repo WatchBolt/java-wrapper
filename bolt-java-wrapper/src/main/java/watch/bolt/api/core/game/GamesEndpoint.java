@@ -8,10 +8,15 @@ import org.apache.http.client.methods.HttpGet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import watch.bolt.api.BoltAPI;
 import watch.bolt.api.core.BoltCallback;
 import watch.bolt.api.core.BoltEndpoint;
 
 public class GamesEndpoint extends BoltEndpoint {
+
+	public GamesEndpoint(BoltAPI api) {
+		super(api);
+	}
 
 	public boolean searchGame(String query, BoltCallback<GameList> out) {
 		if (out == null || query == null || query.isEmpty())
@@ -20,7 +25,7 @@ public class GamesEndpoint extends BoltEndpoint {
 		return executeList(get, out);
 	}
 
-	public boolean getGame(int id, BoltCallback<Game> out) {
+	public boolean getGame(long id, BoltCallback<Game> out) {
 		if (out == null)
 			return false;
 		HttpGet get = new HttpGet(getPath() + "/" + id);

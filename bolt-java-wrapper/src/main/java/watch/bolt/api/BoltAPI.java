@@ -30,8 +30,8 @@ public class BoltAPI {
 		this.parser = new JSONParser();
 		this.listeners = new HashSet<BoltEventListener>();
 		this.endpoints = new HashSet<BoltEndpoint>(
-				Arrays.asList(new UsersEndpoint(), new GamesEndpoint(),
-						new StreamsEndpoint(), new ChannelsEndpoint()));
+				Arrays.asList(new UsersEndpoint(this), new GamesEndpoint(this),
+						new StreamsEndpoint(this), new ChannelsEndpoint(this)));
 	}
 
 	public void callEvent(BoltEvent event) {
@@ -65,7 +65,7 @@ public class BoltAPI {
 	}
 
 	public static BoltAPI getInstance() {
-		if (instance != null) {
+		if (instance == null) {
 			instance = new BoltAPI();
 		}
 		return instance;

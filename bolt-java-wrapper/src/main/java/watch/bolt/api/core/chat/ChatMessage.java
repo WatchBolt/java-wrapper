@@ -4,18 +4,18 @@ import org.json.JSONObject;
 
 public class ChatMessage {
 
-	protected int id, channelId, senderId;
-	protected String htmlFormattedMessage, rawMessage;
+	protected long channelId, senderId;
+	protected String id, htmlFormattedMessage, rawMessage;
 	protected JSONObject userMeta, messageMeta;
 
 	protected ChatMessage() {
 	}
 
-	public int getID() {
+	public String getID() {
 		return id;
 	}
 
-	public int getChannelID() {
+	public long getChannelID() {
 		return channelId;
 	}
 
@@ -35,7 +35,7 @@ public class ChatMessage {
 		return userMeta;
 	}
 
-	public int getSenderID() {
+	public long getSenderID() {
 		return senderId;
 	}
 

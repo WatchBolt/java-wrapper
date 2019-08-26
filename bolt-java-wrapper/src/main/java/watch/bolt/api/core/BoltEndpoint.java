@@ -29,9 +29,9 @@ public abstract class BoltEndpoint {
 	private static final String k = "hampao",
 			URL = "https://api.bolt.watch/api/" + k + "/";
 
-	protected BoltEndpoint() {
-		this.client = BoltAPI.getInstance().getClient();
-		this.parser = BoltAPI.getInstance().getParser();
+	protected BoltEndpoint(BoltAPI api) {
+		this.client = api.getClient();
+		this.parser = api.getParser();
 	}
 
 	public abstract Type getType();

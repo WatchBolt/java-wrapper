@@ -48,7 +48,7 @@ public class ChatClient {
 					try {
 						JSONObject obj = (JSONObject) args[0];
 						ChatMessage cm = new ChatMessage();
-						cm.id = obj.getInt("id");
+						cm.id = obj.getString("id");
 						cm.channelId = obj.getInt("channel");
 						cm.senderId = obj.getInt("sender");
 						cm.htmlFormattedMessage = obj.getString("message");

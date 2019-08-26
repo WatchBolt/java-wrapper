@@ -8,6 +8,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import watch.bolt.api.BoltAPI;
 import watch.bolt.api.core.BoltCallback;
 import watch.bolt.api.core.BoltEndpoint;
 import watch.bolt.api.core.channel.Channel;
@@ -15,7 +16,11 @@ import watch.bolt.api.core.stream.Stream;
 
 public class UsersEndpoint extends BoltEndpoint {
 
-	public boolean getUser(int id, BoltCallback<User> out) {
+	public UsersEndpoint(BoltAPI api) {
+		super(api);
+	}
+
+	public boolean getUser(long id, BoltCallback<User> out) {
 		if (out == null)
 			return false;
 		HttpGet get = new HttpGet(getPath() + "/" + id);
@@ -87,9 +92,9 @@ public class UsersEndpoint extends BoltEndpoint {
 
 	private User parse(JSONObject o) {
 		User u = new User();
-		u.id = (int) o.get("id");
-		u.channelId = (int) o.get("channelId");
-		u.socialId = (int) o.get("socialId");
+		u.id = (long) o.get("id");
+		u.channelId = (long) o.get("channelId");
+		u.socialId = (long) o.get("socialId");
 		u.username = String.valueOf(o.get("username"));
 		u.displayName = String.valueOf(o.get("displayName"));
 		return u;
