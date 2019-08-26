@@ -8,12 +8,12 @@ public abstract class BoltCallback<T extends BoltObject> {
 
 	public abstract void onFail(String msg);
 
-	protected final void fail(String msg) {
+	public final void fail(String msg) {
 		this.failed = true;
 		onFail(msg);
 	}
 
-	protected final void fail() {
+	public final void fail() {
 		fail("An error has occurred.");
 	}
 
