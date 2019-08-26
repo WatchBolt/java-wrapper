@@ -88,11 +88,11 @@ public class StreamsEndpoint extends BoltEndpoint {
 		Stream s = new Stream();
 		s.id = (long) o.get("id");
 		s.userId = (long) o.get("userId");
-		s.viewers = (int) o.get("viewers");
+		s.viewers = (long) o.get("viewers");
 		s.username = String.valueOf(o.get("username"));
 		s.streamName = String.valueOf(o.get("streamName"));
 		s.online = (boolean) o.get("online");
-		s.game = new Game((int) o.get("game"),
+		s.game = new Game((long) o.get("game"),
 				String.valueOf(o.get("gameName")));
 		return s;
 	}

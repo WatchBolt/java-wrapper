@@ -124,12 +124,12 @@ public class ChannelsEndpoint extends BoltEndpoint {
 		Channel channel = new Channel();
 		channel.id = (long) o.get("id");
 		channel.userId = (long) o.get("userId");
-		channel.followers = (int) o.get("followers");
+		channel.followers = (long) o.get("followers");
 		channel.verified = (boolean) o.get("verified");
 		channel.partnered = (boolean) o.get("partnered");
 		channel.streamName = String.valueOf(o.get("streamName"));
 		channel.username = String.valueOf(o.get("username"));
-		channel.game = new Game((int) o.get("game"),
+		channel.game = new Game((long) o.get("game"),
 				String.valueOf(o.get("gameName")));
 		return channel;
 	}

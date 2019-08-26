@@ -16,7 +16,7 @@ import watch.bolt.api.core.events.ChatMessageEvent;
 
 public class ChatClient {
 
-	private final String WS_URL = "wss://chats-atlanta1.bolt.watch";
+	private final String WS_URL = "https://chats-atlanta1.bolt.watch";
 	private Socket socket;
 	private ChannelList channels, authed;
 
@@ -27,7 +27,7 @@ public class ChatClient {
 
 	public void addChannels(Channel... channels) {
 		this.channels.addAll(Arrays.asList(channels));
-		if (socket.connected())
+		if (socket != null && socket.connected())
 			auth();
 	}
 

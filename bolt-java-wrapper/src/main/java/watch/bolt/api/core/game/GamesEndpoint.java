@@ -74,7 +74,7 @@ public class GamesEndpoint extends BoltEndpoint {
 	}
 
 	private Game parse(JSONObject o) {
-		return new Game((int) o.get("id"), String.valueOf(o.get("name")));
+		return new Game((long) o.get("id"), String.valueOf(o.get("name")));
 	}
 
 	@Override

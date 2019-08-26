@@ -7,8 +7,8 @@ public class Game implements BoltObject {
 	protected long id;
 	protected String name;
 
-	public Game(int id, String name) {
-		this.id = id;
+	public Game(long l, String name) {
+		this.id = l;
 		this.name = name;
 	}
 

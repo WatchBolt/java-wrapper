@@ -5,8 +5,7 @@ import watch.bolt.api.core.game.Game;
 
 public class Stream implements BoltObject {
 
-	protected long id, userId;
-	protected int viewers;
+	protected long id, userId, viewers;
 	protected boolean online;
 	protected String username, streamName;
 	protected Game game;
@@ -38,7 +37,7 @@ public class Stream implements BoltObject {
 		return username;
 	}
 
-	public int getViewers() {
+	public long getViewers() {
 		return viewers;
 	}
 
